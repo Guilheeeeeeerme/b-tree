@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1536085370 source:c:\users\breno\desktop\trabalho algoritmos\b_tree\b_tree\array.c
+	<stdio.h>
+	<math.h>
+
+1536085320 source:c:\users\breno\desktop\trabalho algoritmos\b_tree\b_tree\btree-node.c
+	<stdio.h>
+	<stdlib.h>
+	"btree-node.h"
+
+1536085349 c:\users\breno\desktop\trabalho algoritmos\b_tree\b_tree\btree-node.h
+
+1536099826 source:c:\users\breno\desktop\trabalho algoritmos\b_tree\b_tree\btree.c
+	<stdio.h>
+	<stdlib.h>
+	"btree.h"
+	"array.h"
+
+1536085427 c:\users\breno\desktop\trabalho algoritmos\b_tree\b_tree\btree.h
+	"btree-node.h"
+
+1536086592 c:\users\breno\desktop\trabalho algoritmos\b_tree\b_tree\array.h
+
+1536099862 source:c:\users\breno\desktop\trabalho algoritmos\b_tree\b_tree\main.c
+	<stdio.h>
+	"btree.h"
+
