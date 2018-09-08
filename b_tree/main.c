@@ -47,7 +47,7 @@ int main()
         {
             printf("\nInsira o valor a ser removido: ");
             scanf("%d", &k);
-            BTreeNode_Delete(bTree.root, k);
+            BTreeNode__Delete(bTree.root, k);
             printf("\n");
             bTree.show(&bTree);
             printf("Digite 0 pra sair!\n");

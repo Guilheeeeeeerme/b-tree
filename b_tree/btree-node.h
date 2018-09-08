@@ -14,4 +14,4 @@ typedef struct BTreeNode {
 BTreeNode* BTreeNode__new();
 int BTreeNode__isLeaf(BTreeNode* root);
 int BTreeNode__isFull(BTreeNode* root);
-void BTreeNode_Delete(BTreeNode *x, int k);
+int BTreeNode__Delete(BTreeNode *x, int k);
