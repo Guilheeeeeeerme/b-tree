@@ -63,21 +63,10 @@ void BTreeInsertNonfull (BTreeNode* x, int k){
 
 int BTreeSearch (BTreeNode* x, int k, BTreeNode* y){
         int i = 0;
-        //printf("teste\n");
-        //BTreeNode_show(x);
-        //BTreeNode_show(y);
-        //printf("\n%d\n",x->n);
-        //printf("%d\n",x->keys[1]);
-        while((i <= x->n) && (k > x->keys[i]) ){
-
-            //printf("teste2\n");
-            //printf("%d\n",x->keys[i]);
-            //printf("\n%d\n",x->n);
+        while((i < x->n) && (k > x->keys[i]) ){
             i++;
         }
-        //printf("%d\n",x->keys[i]);
-        //printf("%d\n",x->leaf);
-        if(i <= x->n && k == x->keys[i]){
+        if(i < x->n && k == x->keys[i]){
             *y = *x;
             return i;
         }
@@ -101,7 +90,7 @@ void BTreeNode_show(BTreeNode* x){
 
     }
 
-    printf(" } ");
+    printf(" } \n");
 }
 
 void BTreeNode__show(BTreeNode* x){
@@ -124,7 +113,6 @@ void BTreeNode__show(BTreeNode* x){
             BTreeNode__show(x->children[i]);
 
         }
-
         printf("]");
 
     }
@@ -153,6 +141,69 @@ void add(BTree* self, int k){
         BTreeInsertNonfull(r, k);
     }
 
+}
+
+void BTreeNode_Delete(BTreeNode *x, int k)
+{
+    BTreeNode *nodeBusca = BTreeNode__new();
+    int busca = BTreeSearch(x, k, nodeBusca);
+    if (busca == -1)
+    {
+        printf("Valor nao encontrado pela busca!\n");
+    }
+    else
+    {
+        if (nodeBusca->leaf)
+        {
+            for (int i = 0; i < nodeBusca->n; i++)
+            {
+                if (nodeBusca->keys[i] == k)
+                {
+                    BTreeSearchAndDelete (x ,k);
+                    return;
+                }
+            }
+        }
+
+        int i=0;
+        while(nodeBusca->keys[i]< k){
+            i++;
+        }
+
+        if(nodeBusca->keys[i] == k){
+            printArray(nodeBusca->keys, nodeBusca->n);
+            BTreeNode__show(nodeBusca);
+        }
+    }
+}
+
+
+int BTreeSearchAndDelete (BTreeNode* x, int k){
+        int i = 0;
+        while((i < x->n) && (k > x->keys[i]) ){
+            i++;
+        }
+        if(i < x->n && k == x->keys[i]){
+            for(int j=i;j<x->n;j++){
+                x->keys[j]=x->keys[j+1];
+            }
+            x->n--;
+            printf("@@@@@@@@@@@@@@@@@@@ Removeu %d\n", k);
+            return i;
+        }
+        else if(x->leaf){
+            return (-1);
+        }
+        else{
+            return BTreeSearchAndDelete(x->children[i], k);
+        }
+}
+
+void BTree__remove(BTree* self, int k){
+     BTreeNode* r = self->root;
+     if(r->leaf){
+         printf("Folha");
+     }
 }
 
 BTree BTree__new(){

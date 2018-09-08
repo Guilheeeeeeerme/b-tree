@@ -8,3 +8,7 @@ typedef struct BTree {
 } BTree;
 
 BTree BTree__new();
+void BTreeNode__show(BTreeNode* x);
+int BTreeSearch (BTreeNode* x, int k, BTreeNode* y);
+int BTreeSearchAndDelete (BTreeNode* x, int k);
+void BTreeNode_show(BTreeNode* x);

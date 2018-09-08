@@ -1,47 +1,69 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "btree.h"
 
-int main() {
+int main()
+{
     BTree bTree = BTree__new();
     int k;
     int busca;
+    int op = 100;
 
-
-    for(int i =0; i< 100; i++)
+    for (int i = 1; i <= 11; i++)
         bTree.add(&bTree, i);
 
     printf("var bTree = ");
     bTree.show(&bTree);
 
-    //BTreeNode_show(bTree.root);
+    while (op)
+    {
+        printf("\n1 - Busca\n2 - Remocao\n3 - Insercao\n");
+        scanf("%d", &op);
+        if (op == 1)
+        {
+            BTreeNode *nodeBusca = BTreeNode__new();
 
+            printf("\nInsira o valor a ser pesquisado: ");
+            scanf("%d", &k);
+            busca = BTreeSearch(bTree.root, k, nodeBusca);
 
+            if (busca == -1)
+            {
+                printf("\nNada foi encontrado");
+            }
+            else
+            {
+                printf("\nO node eh:\n");
+                BTreeNode_show(nodeBusca);
+                printf("\nO indice eh: %d\n", busca);
 
-    BTreeNode* nodeBusca = BTreeNode__new();
-    BTreeNode* auxi = BTreeNode__new();
-    auxi = bTree.root;
-    //printf("\n%d",auxi);
-    //printf("\n%d",bTree.root->keys[1]);
-    //printf("\n\n\n\n\n");
-    //BTreeNode_show(auxi);
-    nodeBusca->leaf = FALSE;
-    //printf("\n%d",nodeBusca->leaf);
-    //BTreeNode_show(nodeBusca);
-    printf("\nInsira o valor a ser pesquisado: ");
-    scanf("%d", &k);
+                BTreeNode_show(bTree.root);
+            }
 
-    busca = BTreeSearch(bTree.root,k,nodeBusca);
+            printf("Digite 0 pra sair!\n");
+            scanf("%d", &op);
+        }
+        else if (op == 2)
+        {
+            printf("\nInsira o valor a ser removido: ");
+            scanf("%d", &k);
+            BTreeNode_Delete(bTree.root, k);
+            printf("\n");
+            bTree.show(&bTree);
+            printf("Digite 0 pra sair!\n");
+            scanf("%d", &op);
+        }
+        else if (op == 3)
+        {
+            printf("\nValor a ser inserido: ");
+            scanf("%d", &k);
+            bTree.add(&bTree, k);
+            bTree.show(&bTree);
 
-    if(busca == -1){
-        printf("\nnada foi encontrado");
+            printf("\nDigite 0 pra sair!\n");
+            scanf("%d", &op);
+        }
     }
-    else{
-    printf("\nO node eh:\n");
-    BTreeNode_show(nodeBusca);
-    printf("\nO indice eh: %d",busca);
-    //free(nodeBusca);
-    }
-
 
     return 0;
 }
