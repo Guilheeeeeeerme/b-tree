@@ -13,7 +13,5 @@ typedef struct BTreeNode
 } BTreeNode;
 
 BTreeNode *BTreeNode__new();
-int BTreeNode__isLeaf(BTreeNode *root);
-int BTreeNode__isFull(BTreeNode *root);
 void BTreeNode__Show(BTreeNode *x);
 int BTreeNode__Search(BTreeNode *r, int k, BTreeNode *y);

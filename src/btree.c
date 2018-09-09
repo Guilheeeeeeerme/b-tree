@@ -9,9 +9,6 @@ void BTree__Delete(BTree* self, int k){
 
 void BTreeSplitChild(BTreeNode *target, int insertAt)
 {
-    // printf("\n// Splitting ");
-    // printArray(target->children[insertAt]->keys, target->children[insertAt]->n);
-    // printf(" at %d", insertAt);
 
     BTreeNode *right = BTreeNode__new(); // z
     BTreeNode *left = target->children[insertAt];
@@ -56,9 +53,6 @@ void BTreeInsertNonfull(BTreeNode *x, int k)
     if (x->leaf)
     {
 
-        // printf("\n// inserting %d at leaf ", k);
-        // printArray(x->keys, x->n);
-
         x->keys[x->n] = k;
         x->n++;
         insertionSort(x->keys, x->n);
@@ -72,9 +66,6 @@ void BTreeInsertNonfull(BTreeNode *x, int k)
         {
             i--;
         }
-
-        // printf("\n// inserting %d at internal ", k);
-        // printArray(x->children[i]->keys, x->children[i]->n);
 
         if (x->children[i]->n == ((2 * T) - 1))
         {
@@ -121,8 +112,6 @@ void BTree__Add(BTree *self, int k)
     {
         BTreeInsertNonfull(r, k);
     }
-
-    // printf("\n");
 }
 
 BTree BTree__new()

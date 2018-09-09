@@ -71,13 +71,3 @@ BTreeNode *BTreeNode__new()
 
     return bTreeNode;
 }
-
-int BTreeNode__isLeaf(BTreeNode *root)
-{
-    return root->leaf == TRUE;
-}
-
-int BTreeNode__isFull(BTreeNode *root)
-{
-    return root->n == ORDER;
-}
