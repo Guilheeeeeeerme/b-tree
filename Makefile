@@ -4,6 +4,9 @@ all:
 	gcc -c src/btree.c -o btree.o
 	gcc -c src/main.c -o main.o
 	gcc main.o btree.o btree-node.o array.o -o main
+	main.exe
+print:
 	main.exe > result.js
+	npm run lint
 clean:
 	del /s /q *.o || rm -rf *.o

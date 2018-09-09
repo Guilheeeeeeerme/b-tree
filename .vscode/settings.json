@@ -4,6 +4,7 @@
 		"boolean.h": "c",
 		"stdio.h": "c",
 		"stdlib.h": "c",
-		"btree.h": "c"
+		"btree.h": "c",
+		"array.h": "c"
 	}
 }

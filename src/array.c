@@ -25,13 +25,19 @@ void insertionSort(int arr[], int n)
 
 // A utility function to print an array of size n
 void printArray(int arr[], int n)
-{   
+{
     int i;
     printf("[");
-    
-    for (i = 0; i < (n - 1); i++){
-        printf("%d, ", arr[i]);
+
+    if (n > 0)
+    {
+        for (i = 0; i < (n - 1); i++)
+        {
+            printf("%d, ", arr[i]);
+        }
+
+        printf("%d", arr[i]);
     }
-    
-    printf("%d]", arr[i]);
+
+    printf("]");
 }

@@ -1,10 +1,13 @@
 
 #include "btree-node.h"
 
-typedef struct BTree {
+typedef struct BTree
+{
     BTreeNode *root;
-    void (*add)(struct BTree* self, int key);
-    void (*show)(struct BTree* self);
 } BTree;
 
 BTree BTree__new();
+void BTree__Add(BTree* self, int k);
+void BTree__Show(BTree* self);
+int BTree__Search(BTree* self, int k, BTreeNode* y);
+void BTree__Delete(BTree* self, int k);

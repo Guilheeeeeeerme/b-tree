@@ -4,13 +4,16 @@
 #define TRUE 1
 #define FALSE 0
 
-typedef struct BTreeNode {
+typedef struct BTreeNode
+{
     int leaf;
     int n;
     int keys[ORDER];
     struct BTreeNode *children[CHILDREN];
 } BTreeNode;
 
-BTreeNode* BTreeNode__new();
-int BTreeNode__isLeaf(BTreeNode* root);
-int BTreeNode__isFull(BTreeNode* root);
+BTreeNode *BTreeNode__new();
+int BTreeNode__isLeaf(BTreeNode *root);
+int BTreeNode__isFull(BTreeNode *root);
+void BTreeNode__Show(BTreeNode *x);
+int BTreeNode__Search(BTreeNode *r, int k, BTreeNode *y);
