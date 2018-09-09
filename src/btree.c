@@ -3,8 +3,8 @@
 #include "btree.h"
 #include "array.h"
 
-void BTree__Delete(BTree* self, int k){
-
+void BTree__Delete(BTree *self, int k)
+{
 }
 
 void BTreeSplitChild(BTreeNode *target, int insertAt)
@@ -81,8 +81,8 @@ void BTreeInsertNonfull(BTreeNode *x, int k)
 }
 
 int BTree__Search(BTree *x, int k, BTreeNode *y)
-{   
-    BTreeNode* r = x->root;
+{
+    BTreeNode *r = x->root;
     return BTreeNode__Search(r, k, y);
 }
 
